@@ -1,0 +1,43 @@
+{
+  "name": "goperla-2.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "pretest":"tsc --noEmit",
+    "update:playwright": "playwright install --with-deps",
+    "test:record": "npx playwright codegen --viewport-size=1680,1050  http://3.80.32.182:3000/signup",
+    "tests": "cross-env ENV=test npx playwright test --headed",
+    "test": "npx playwright test --headed",
+    "test:chrome": "npx playwright test --project=Chrome",
+    "html-report": "npx playwright test --reporter=html && npx playwright show-report",
+    "test:allure": "playwright test --reporter=allure-playwright",
+    "allure:clean": "rimraf allure-results",
+    "allure-generate": "allure generate ./allure-results --clean -o allure-reports",
+    "allure:reports": "npm run allure-generate && allure serve",
+    "allure:chrome": "npm run allure:clean && npm run test:chrome && npm run allure-generate && npm run allure:reports",
+    "allure:html": "allure generate --single-file ./allure-results"
+  },
+  "keywords": [
+    "Playwright"
+  ],
+  "author": "Gobinath",
+  "license": "ISC",
+  "description": "Automating Management of Staff Credentials for Long-Term Care",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@faker-js/faker": "^9.3.0",
+    "@playwright/test": "^1.49.1",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.10.2",
+    "allure-playwright": "^3.0.7",
+    "axios": "^1.7.9",
+    "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "crypto-js": "^4.2.0",
+    "monocart-reporter": "^2.9.12",
+    "pdfjs-dist": "^4.9.155",
+    "playwright": "^1.49.1",
+    "typescript": "^5.7.2",
+    "winston": "^3.17.0"
+  }
+}
