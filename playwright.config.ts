@@ -16,13 +16,14 @@ export const reporter = [
 ];
 
 function getBaseUrl() {
-  const environment = process.env.ENV;
+  // const environment = process.env.ENV;
+  const environment = process.env.ENV || 'local';
   if (!environment) return 'http://3.80.32.182:3000';
   switch (environment) {
     case 'prod':
       return 'https://www.goperla.com/';
     case 'local':
-      return 'http://localhost';
+      return 'http://localhost:3000';
   }
 }
 
@@ -38,7 +39,7 @@ export const projects = [
     use: {
       browserName: `chromium`,
       channel: `chrome`,
-      headless: true,
+      headless: false,
       screenshot: `only-on-failure`,
       video: `retain-on-failure`,
       trace: `retain-on-failure`,
