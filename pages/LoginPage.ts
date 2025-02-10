@@ -22,7 +22,6 @@ export class LoginPage {
 	readonly profile: Locator
 	readonly logout: Locator
 
-
 	constructor(page: Page) {
 		this.page = page
 		this.logo = page.getByRole('img', { name: 'logo' })
@@ -53,19 +52,18 @@ export class LoginPage {
 
 	async navigateTo(baseURL: string) {
 		if (!baseURL) {
-			throw new Error('Base URL is not defined in the Playwright configuration.');
+			throw new Error( 'Base URL is not defined in the Playwright configuration.' )
 		}
-		await this.page.goto(baseURL);
+		await this.page.goto(baseURL)
 	}
 
 	async navigateAndVerify(page, baseURL, targetPath) {
 		await test.step(`Navigate to ${targetPath}`, async () => {
-			await page.goto(`${baseURL}${targetPath}`);
-			await page.waitForLoadState('networkidle');
-			const currentURL = page.url();
-			console.log(`Navigated to: ${currentURL}`);
-			expect(currentURL).toBe(`${baseURL}${targetPath}`);
-		});
+			await page.goto(`${baseURL}${targetPath}`)
+			await page.waitForLoadState('networkidle')
+			const currentURL = page.url()
+			console.log(`Navigated to: ${currentURL}`)
+			expect(currentURL).toBe(`${baseURL}${targetPath}`)
+		})
 	}
-	//    //div[@role='alert'][1]
 }
