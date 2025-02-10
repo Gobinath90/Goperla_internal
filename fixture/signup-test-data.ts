@@ -16,7 +16,7 @@ export const signupTestData = {
         password: 'Test@12345',
     },
 
-    long: { email: 'a'.repeat(243) + '@example.com', password: 'a'.repeat(31) },
+    long: { email: 'a'.repeat(243) + '@example.com', password: 'a'.repeat(32) },
     short: { email: 't@m', password: 'Test@' },
 
 

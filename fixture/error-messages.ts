@@ -12,5 +12,6 @@ export const errorMessages = {
     minLengthPassword: 'Password must be at least 8 characters',
     maxLengthPassword: 'Password exceeds maximum length',
     emailExists: 'A user with this email already exists',
-    invalidOTP:'Please enter a valid OTP'
+    invalidOTP:'Please enter a valid OTP',
+    otpFormat:'OTP must be a 6-digit number'
   };
