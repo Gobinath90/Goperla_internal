@@ -189,12 +189,12 @@ export async function fillCompanyData(page, CreateCompanyValidData) {
   await page.getByPlaceholder('Enter Street Address 2').fill(CreateCompanyValidData.streetAddress2);
   await page.getByPlaceholder('Enter City').fill(CreateCompanyValidData.city);
   await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
-  await page.getByPlaceholder('Enter Country').fill(CreateCompanyValidData.Countryname);
+  await page.getByPlaceholder('Enter Country').fill(CreateCompanyValidData.countryName);
   await page.getByPlaceholder('Enter Zip Code').fill(CreateCompanyValidData.zipCode);
   await page.getByPlaceholder('Enter Phone Number').fill(CreateCompanyValidData.phoneNumber);
   await page.getByPlaceholder('Enter Mobile Number').fill(CreateCompanyValidData.mobileNumber);
   // await page.getByPlaceholder('Enter Website Address').fill(CreateCompanyValidData.websiteAddress);
-  await page.locator('#websiteAddress').fill(CreateCompanyValidData.domainaddress);
+  await page.locator('#websiteAddress').fill(CreateCompanyValidData.domainAddress);
 }
 
 export async function filladdressDetails(page, addressDetails) {
