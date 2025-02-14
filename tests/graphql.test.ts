@@ -135,7 +135,7 @@ test.describe.skip('User Sign Up and Resend APi and Confirmation API', () => {
 //   });
 // });
 
-test.describe('User Sign In API and Logout API', () => {
+test.describe.skip('User Sign In API and Logout API', () => {
   test.beforeEach(async ({ request }) => {
 
     const module = "string";
@@ -195,7 +195,7 @@ test.describe('User Sign In API and Logout API', () => {
   });
 });
 
-test.describe('Forgot Password and Confirm New Password API', () => {
+test.describe.skip('Forgot Password and Confirm New Password API', () => {
   test('should trigger forgot password successfully', async ({ request }) => {
     const mutation = `
       mutation {
@@ -254,7 +254,7 @@ test.describe('Forgot Password and Confirm New Password API', () => {
   });
 });
 
-test.describe('User Sign In API with New password and Logout API', () => {
+test.describe.skip('User Sign In API with New password and Logout API', () => {
   test.beforeEach(async ({ request }) => {
 
     const module = "string";

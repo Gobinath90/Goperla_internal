@@ -6,9 +6,10 @@ let storedUuid
 let password = 'Test@123'
 let module = 'MARKETING'
 let confirmationCode = '123456'
-const url = 'http://18.212.198.138:5001/graphql'
+const url = 'http://35.174.104.5:5001/graphql'
 
-test.describe.skip('Create User and Confirm Sign Up', () => {
+
+test.describe('Create User and Confirm Sign Up', () => {
 	test('create user', async ({ page }) => {
 		const createUserMutation = `
     mutation signUpUser($email: String!, $password: String!, $module: String!) {

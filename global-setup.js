@@ -5,7 +5,7 @@ const path = require('path');
 async function globalSetup() {
     const environmentVariables = {
         ENV: process.env.ENV || 'qa',
-        URL: process.env.URL || 'https://etanadigital.net/login',
+        URL: process.env.URL || 'http://3.80.32.182:3000/',
         BROWSER: process.env.BROWSER || 'Chrome'
     };
 

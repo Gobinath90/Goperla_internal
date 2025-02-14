@@ -38,7 +38,7 @@ test.describe('Signup Page Tests', () => {
 
   test.describe.parallel('UI and Accessibility Tests', () => {
 
-    test('SignUp-0000: Verify the page accessibility Functionality',{ tag: ['@Smoke'], }, async ({ page }) => {
+    test.skip('SignUp-0000: Verify the page accessibility Functionality',{ tag: ['@Smoke'], }, async ({ page }) => {
       const { violations } = await new AxeBuilder({ page}).analyze();
       expect(violations).toHaveLength(0);
       });

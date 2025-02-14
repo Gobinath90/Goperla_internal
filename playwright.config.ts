@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 export const testDir = './tests';
 export const timeout = 60000;
 export const retries = process.env.CI ? 2 : 1;
@@ -22,7 +25,7 @@ function getBaseUrl() {
     case 'prod':
       return 'https://www.goperla.com/';
     case 'local':
-      return 'http://localhost';
+      return 'http://localhost:3000';
   }
 }
 
