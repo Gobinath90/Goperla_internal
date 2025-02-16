@@ -3,6 +3,7 @@ export const timeout = 60000;
 export const retries = process.env.CI ? 2 : 1;
 export const workers = process.env.CI ? 1 : 1;
 export const fullyParallel = true;
+const USE_MFA = process.env.M365_OTP_SECRET ? true : false;
 
 export const reporter = [
   ['list'],
@@ -12,13 +13,17 @@ export const reporter = [
   ['monocart-reporter', {
     name: "Goperla 2.0 Automation Test Report",
     outputFile: './report/monocart-report/index.html',
-  }],
+  }]
 ];
 
 function getBaseUrl() {
-  const environment = process.env.ENV;
+  const environment = process.env.ENV || 'qa';
   if (!environment) return 'http://3.80.32.182:3000';
   switch (environment) {
+    case 'qa':
+      return 'http://3.80.32.182:3000';
+    case 'dev':
+      return 'https://marketing-dev.goperla.com';
     case 'prod':
       return 'https://www.goperla.com/';
     case 'local':
@@ -38,7 +43,7 @@ export const projects = [
     use: {
       browserName: `chromium`,
       channel: `chrome`,
-      headless: true,
+      headless: false,
       screenshot: `only-on-failure`,
       video: `retain-on-failure`,
       trace: `retain-on-failure`,

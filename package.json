@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "pretest":"tsc --noEmit",
+    "pretest": "tsc --noEmit",
     "update:playwright": "playwright install --with-deps",
-    "test:record": "npx playwright codegen --viewport-size=1680,1050  http://3.80.32.182:3000/signup",
+    "test:record": "npx playwright codegen --viewport-size=1680,1050  http://3.80.32.182:3000",
     "tests": "cross-env ENV=test npx playwright test --headed",
     "test": "npx playwright test --headed",
     "test:chrome": "npx playwright test --project=Chrome",
@@ -34,9 +34,12 @@
     "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
     "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.7",
     "monocart-reporter": "^2.9.12",
+    "otpauth": "^9.3.6",
     "pdfjs-dist": "^4.9.155",
     "playwright": "^1.49.1",
+    "playwright-msteams-reporter": "^0.0.12",
     "typescript": "^5.7.2",
     "winston": "^3.17.0"
   }

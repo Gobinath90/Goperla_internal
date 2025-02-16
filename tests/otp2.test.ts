@@ -135,3 +135,9 @@ test('Open Google in first tab, Microsoft in second tab', async ({ browser }) =>
     console.log('Clicked GoDaddy');
 });
 
+// URL = 'https://login.microsoftonline.com/';
+// name = 'goperla2';
+// password = 'glgfslgzgvsbkpqr';
+
+//   Account name: Twilight IT Solutions:gobinath.ravichandran@twilightitsolutions.com
+//   Secret key:   qjmsccsytbgykwc5
