@@ -5,7 +5,8 @@ import {
 	CompanyDetails,
 	PaymentCard,
 	WorkspaceDetails,
-    SubsidiaryDetails
+    SubsidiaryDetails,
+	BillingAddress
 } from '../fixture/testdata'
 import { getOrCreateCounter } from '../utils/counter'
 import {
@@ -21,8 +22,8 @@ export const test = base.extend<MyFixtures>({
 	generatedEmail: [
 		async ({}, use) => {
 			const counter = getOrCreateCounter()
-			//const email = `dorothy.wilson+000${counter}@healthPointerGroup.com`
-			const email = `gp2_test+000${counter}@twilightitsolutions.com`
+			const email = `dorothy.wilson+000${counter}@healthPointerGroup.com`
+			//const email = `gp2_test+000${counter}@twilightitsolutions.com`
 			await use(email)
 		},
 		{ scope: 'test' }
@@ -48,12 +49,12 @@ export const test = base.extend<MyFixtures>({
 				cvv: PaymentCard.cvv,
 				expiryMonth: PaymentCard.expiryMonth,
 				expiryYear: PaymentCard.expiryYear,
-				billingAddress1: AddressDetails.addressLine1,
-				billingAddress2: AddressDetails.addressLine2,
-				billingCity: AddressDetails.city,
-				billingState: AddressDetails.state,
-				billingCountry: AddressDetails.countryName,
-				billingZipCode: AddressDetails.zipcode,
+				billingAddress1: BillingAddress.addressLine1,
+				billingAddress2: BillingAddress.addressLine2,
+				billingCity: BillingAddress.city,
+				billingState: BillingAddress.state,
+				billingCountry: BillingAddress.countryName,
+				billingZipCode: BillingAddress.zipcode,
 				billingName: `${UserDetails.firstName} ${UserDetails.lastName}`,
 				billingEmail: generatedEmail,
 			}

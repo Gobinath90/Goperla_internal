@@ -186,114 +186,171 @@ export const clickTexts = async (page, texts) => {
 };
 
 export async function fillCompanyData(page, CreateCompanyValidData) {
-  const companyInformation = page.getByText('Company Information');
-  if(companyInformation.isVisible){
-    try {
-      Logger.info('⏳ Filling Company Information...');
-    await page.getByText('Company Information').isVisible();
-    await page.getByPlaceholder('Enter Company Name').fill(CreateCompanyValidData.companyName);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter EIN/FEIN').fill(CreateCompanyValidData.ein);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter NPI No.').fill(CreateCompanyValidData.npi);
-    await page.waitForTimeout(1000);
-    await page.locator('#domain').fill(CreateCompanyValidData.domain);
-    await page.waitForTimeout(1000);
-    //await page.getByPlaceholder('Enter Website address').fill(CreateCompanyValidData.website);
-    //await page.waitForTimeout(1000);
-    Logger.pass('✅ Company Information filled successfully');
-    } catch (error) {
-      Logger.error(`Error while filling on Company Information: ${error}`);
-    }
-    
-  }
+  await test.step('Fill Company Registration Form', async () => {
+      const companyInformation = page.getByText('Company Information');
+      
+      if(companyInformation.isVisible) {
+          await test.step('Fill Company Information Section', async () => {
+              try {
+                  Logger.info('⏳ Filling Company Information...');
+                  await page.getByText('Company Information').isVisible();
+                  
+                  await test.step('Enter Basic Company Details', async () => {
+                      await page.getByPlaceholder('Enter Company Name').fill(CreateCompanyValidData.companyName);
+                      await page.waitForTimeout(1000);
+                      await page.getByPlaceholder('Enter EIN/FEIN').fill(CreateCompanyValidData.ein);
+                      await page.waitForTimeout(1000);
+                  });
 
-  const contactInformation = page.getByText('Contact Information');
-  if(contactInformation.isVisible){
-    try {
-      Logger.info('⏳ Filling Contact Information...');
-    await page.getByPlaceholder('Enter Street Address 1').fill(CreateCompanyValidData.streetAddress1);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter Street Address 2').fill(CreateCompanyValidData.streetAddress2);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter City').fill(CreateCompanyValidData.city);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
-    await page.waitForTimeout(1000);
-    // await page.getByPlaceholder('Enter Country').fill(CreateCompanyValidData.countryName);
-    // await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter Zip Code').fill(CreateCompanyValidData.zipCode);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter Phone Number').fill(CreateCompanyValidData.phoneNumber);
-    await page.waitForTimeout(1000);
-    await page.getByPlaceholder('Enter Mobile Number').fill(CreateCompanyValidData.mobileNumber);
-    await page.waitForTimeout(1000);
-    Logger.pass('✅ Contact Information filled successfully');
-    } catch (error) {
-      Logger.error(`Error while filling on Contact Information: ${error}`);
-    }
-    
-  }
+                  await test.step('Enter Registration Numbers', async () => {
+                      await page.getByPlaceholder('Enter NPI No.').fill(CreateCompanyValidData.npi);
+                      await page.waitForTimeout(1000);
+                      await page.locator('#domain').fill(CreateCompanyValidData.domain);
+                      await page.waitForTimeout(1000);
+                  });
 
-  
+                  Logger.pass('✅ Company Information filled successfully');
+              } catch (error) {
+                  Logger.error(`Error while filling on Company Information: ${error}`);
+                  throw error;
+              }
+          });
+      }
+
+      const contactInformation = page.getByText('Contact Information');
+      if(contactInformation.isVisible) {
+          await test.step('Fill Contact Information Section', async () => {
+              try {
+                  Logger.info('⏳ Filling Contact Information...');
+                  
+                  await test.step('Enter Address Details', async () => {
+                      await page.getByPlaceholder('Enter Street Address 1').fill(CreateCompanyValidData.streetAddress1);
+                      await page.waitForTimeout(1000);
+                      await page.getByPlaceholder('Enter Street Address 2').fill(CreateCompanyValidData.streetAddress2);
+                      await page.waitForTimeout(1000);
+                      await page.getByPlaceholder('Enter City').fill(CreateCompanyValidData.city);
+                      await page.waitForTimeout(1000);
+                      await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
+                      await page.waitForTimeout(1000);
+                      await page.getByPlaceholder('Enter Zip Code').fill(CreateCompanyValidData.zipCode);
+                      await page.waitForTimeout(1000);
+                  });
+
+                  await test.step('Enter Contact Numbers', async () => {
+                      await page.getByPlaceholder('Enter Phone Number').fill(CreateCompanyValidData.phoneNumber);
+                      await page.waitForTimeout(1000);
+                      await page.getByPlaceholder('Enter Mobile Number').fill(CreateCompanyValidData.mobileNumber);
+                      await page.waitForTimeout(1000);
+                  });
+
+                  Logger.pass('✅ Contact Information filled successfully');
+              } catch (error) {
+                  Logger.error(`Error while filling on Contact Information: ${error}`);
+                  throw error;
+              }
+          });
+      }
+		//test.expect(createCompanyValidData.domainAddress).toBe(`HealthPointer NHF Group ${domain}`);		
+      // Handle SMS Authorization and Form Submission
+      const smsElement = page.getByText('I authorize Perla to send SMS');
+      await smsElement.scrollIntoViewIfNeeded();
+      await smsElement.click();
+      await page.waitForTimeout(3000);
+      
+      await clickElementsByRole(page, ['Submit'], 'button');
+      await verifyVisibility(
+          page.getByText('Company created successfully!'),
+          'Company created successfully Toast message is Showing successfully'
+      );
+      await page.waitForTimeout(3000);
+  });
 }
+
+
 
 export async function filladdressDetails(page, addressDetails) {
-  try {
-  await page.locator('input[name="addressLine1"]').fill(addressDetails.addressLine1);
-  await page.locator('input[name="city"]').fill(addressDetails.city);
-  await page.locator('input[name="zipCode"]').fill(addressDetails.zipcode);
-  await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(2000);
-  // await page.getByRole('option', { name: 'US' }).click();
-  // await page.waitForTimeout(2000);
-  await page.getByRole('combobox').nth(1).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('option', { name: 'Virginia(VA)' }).click();
-  Logger.pass('✅ Address Details filled successfully');
-  } catch (error) {
-    Logger.error(`Error while filling on Address Details: ${error}`);
-    
-  }
-  
+  await test.step('Fill Address Details Form', async () => {
+      try {
+          await test.step('Enter Address Line and City', async () => {
+              await page.locator('input[name="addressLine1"]').fill(addressDetails.addressLine1);
+              await page.locator('input[name="city"]').fill(addressDetails.city);
+          });
+
+          await test.step('Enter Zipcode', async () => {
+              await page.locator('input[name="zipCode"]').fill(addressDetails.zipcode);
+          });
+
+          await test.step('Select State', async () => {
+              await page.getByRole('combobox').first().click();
+              await page.waitForTimeout(2000);
+              await page.getByRole('option', { name: 'Virginia' }).click();
+          });
+
+          Logger.pass('✅ Address Details filled successfully');
+      } catch (error) {
+          Logger.error(`Error while filling on Address Details: ${error}`);
+          throw error;
+      }
+  });
 }
+
 
 export async function fillCardDetails(page: Page, cardName: string, cardNumber: string, expiryDate: string, cvc: string) {
-try {
-  await page.locator('input[name="cardholderName"]').fill(cardName);
-  // Wait for the iframe to be visible
-  const iframeLocator = page.locator('iframe[name*="__privateStripeFrame"]');
-  await iframeLocator.first().waitFor({ state: 'visible', timeout: 50000 });
-  // Define field placeholders in order
-  const placeholders = ['1234 1234 1234 1234', 'MM / YY', 'CVC'];
-  const values = [cardNumber, expiryDate, cvc];
-  // Loop through each iframe and fill the respective field
-  for (let i = 0; i < placeholders.length; i++) {
-    const frame = await iframeLocator.nth(i).contentFrame();
-    await frame?.getByPlaceholder(placeholders[i]).fill(values[i]);
-    await page.waitForTimeout(2000);
-  }
-} catch (error) {
-  Logger.error(`Error while filling on Card Details: ${error}`);
+  await test.step('Fill Credit Card Details', async () => {
+      try {
+          await test.step('Enter Cardholder Name', async () => {
+              await page.locator('input[name="cardholderName"]').fill(cardName);
+          });
+
+          await test.step('Handle Stripe iFrame Fields', async () => {
+              const iframeLocator = page.locator('iframe[name*="__privateStripeFrame"]');
+              await iframeLocator.first().waitFor({ state: 'visible', timeout: 50000 });
+
+              const placeholders = ['1234 1234 1234 1234', 'MM / YY', 'CVC'];
+              const values = [cardNumber, expiryDate, cvc];
+
+              for (let i = 0; i < placeholders.length; i++) {
+                  await test.step(`Fill ${placeholders[i]}`, async () => {
+                      const frame = await iframeLocator.nth(i).contentFrame();
+                      await frame?.getByPlaceholder(placeholders[i]).fill(values[i]);
+                      await page.waitForTimeout(2000);
+                  });
+              }
+          });
+
+          Logger.pass('✅ Card Details filled successfully');
+      } catch (error) {
+          Logger.error(`Error while filling on Card Details: ${error}`);
+          throw error;
+      }
+  });
 }
 
-  
-}
 
 
 export async function login(page, sharedEmail, createCredentials, domain) {
   await test.step('Login to application', async () => {
-  Logger.info('Starting login process');
-  const url = `https://${domain}.qa.goperla.com/`;
-  await page.goto(url);
-  await page.getByPlaceholder('Enter your email').fill(sharedEmail);
-  await page.getByPlaceholder('Enter your Password').fill(createCredentials.password);
-  await page.getByRole('button', { name: 'Sign In', exact: true }).click();  
-  await test.expect(page.getByText('Signed in successfully!')).toBeVisible();
-  Logger.info('Login completed successfully');
-});
+      await test.step('Navigate to login page', async () => {
+          Logger.info('⏳ Navigating to login page...');
+          const url = `https://${domain}.qa.goperla.com/`;
+          await page.goto(url);
+      });
 
+      await test.step('Enter credentials', async () => {
+          Logger.info('⏳ Entering login credentials...');
+          await page.getByPlaceholder('Enter your email').fill(sharedEmail);
+          await page.getByPlaceholder('Enter your Password').fill(createCredentials.password);
+      });
+
+      await test.step('Submit login form', async () => {
+          await page.getByRole('button', { name: 'Sign In', exact: true }).click();
+          await test.expect(page.getByText('Signed in successfully!')).toBeVisible();
+      });
+
+      Logger.pass('✅ Login completed successfully');
+  });
 }
+
 
 export async function verifyNavigationButtons(page) {
   await test.step('Verify navigation elements', async () => {
@@ -310,50 +367,73 @@ export async function verifyNavigationButtons(page) {
 
 export async function createWorkspace(page, data) {
   await test.step('Create new workspace', async () => {
-  Logger.info(`Creating workspace: ${data.name}`);
-  await page.getByRole('button', { name: 'Create' }).click();
-  await page.getByRole('menuitem', { name: 'Create Workspace' }).click();
-  await page.getByPlaceholder('Enter Workspace Name').fill(data.name);
-  await page.getByPlaceholder('Select user').click();
-  await page.getByRole('listbox').click();
-  await page.getByPlaceholder('Enter Description').fill(data.description);
-  await page.getByRole('button', { name: 'Create' }).click();
-  await test.expect(page.getByText('Workspace created successfully')).toBeVisible();
-  await page.waitForTimeout(2000);
-  await test.expect(page.getByRole('button', { name: `workspace-icon    ${data.name}` })).toBeVisible();
-  await page.waitForTimeout(2000);
-  Logger.info('Workspace created successfully');
-});
+    await test.step('Open workspace creation modal', async () => {
+        Logger.info(`⏳ Initiating workspace creation: ${data.name}`);
+        await page.getByRole('button', { name: 'Create' }).click();
+        await page.getByRole('menuitem', { name: 'Create Workspace' }).click();
+    });
+    await test.step('Fill workspace details', async () => {
+      await page.getByPlaceholder('Enter Workspace Name').fill(data.name);
+      await page.getByPlaceholder('Select user').click();
+      await page.getByRole('listbox').click();
+      await page.getByPlaceholder('Enter Description').fill(data.description);
+    });
+    await test.step('Submit and verify workspace creation', async () => {
+      await page.getByRole('button', { name: 'Create' }).click();
+      await test.expect(page.getByText('Workspace created successfully')).toBeVisible();
+      await page.waitForTimeout(2000);
+      await test.expect(page.getByRole('button', { name: `workspace-icon    ${data.name}` })).toBeVisible();
+      await page.waitForTimeout(2000);
+    });
+    Logger.info('Workspace created successfully');
+  });
 }
 
 export async function createSubsidiary(page, data) {
   await test.step('Create new subsidiary', async () => {
-      Logger.info(`Creating subsidiary: ${data.name}`);
-      await page.getByRole('button', { name: 'Create' }).click();
-      await page.getByRole('menuitem', { name: 'Create Subsidiary' }).click();
-      await page.getByPlaceholder('Enter Subsidiary Name').fill(data.name);
-      await page.getByLabel('Assign Subsidiary').click();
-      await page.getByRole('option', { name: data.assignTo }).click();
-      await page.getByPlaceholder('Enter Description').fill(data.description);
-      await page.getByRole('button', { name: 'Create' }).click();
-      await test.expect(page.getByText('Subsidiary created')).toBeVisible();
-      Logger.info('Subsidiary created successfully');
+      await test.step('Open subsidiary creation modal', async () => {
+          Logger.info(`⏳ Initiating subsidiary creation: ${data.name}`);
+          await page.getByRole('button', { name: 'Create' }).click();
+          await page.getByRole('menuitem', { name: 'Create Subsidiary' }).click();
+      });
+
+      await test.step('Fill subsidiary details', async () => {
+          await page.getByPlaceholder('Enter Subsidiary Name').fill(data.name);
+          await page.getByLabel('Assign Subsidiary').click();
+          await page.getByRole('option', { name: data.assignTo }).click();
+          await page.getByPlaceholder('Enter Description').fill(data.description);
+      });
+
+      await test.step('Submit and verify subsidiary creation', async () => {
+          await page.getByRole('button', { name: 'Create' }).click();
+          await test.expect(page.getByText('Subsidiary created')).toBeVisible();
+      });
+
+      Logger.pass('✅ Subsidiary created successfully');
   });
 }
 
 export async function editWorkspace(page, workspaceName) {
   await test.step('Edit workspace', async () => {
-      Logger.info(`Editing workspace: ${workspaceName}`);
-      const workspaceButton = page.getByRole('button', { name: `workspace-icon    ${workspaceName}` });
-      await workspaceButton.hover();
-      await workspaceButton.getByRole('button').first().click();
-      await page.getByRole('menuitem', { name: 'edit Edit' }).click();
-      await page.getByPlaceholder('Enter Workspace Name').fill(`${workspaceName}a`);
-      await page.getByRole('button', { name: 'Update' }).click();
-      Logger.info('Workspace edited successfully');
+      await test.step('Open workspace edit modal', async () => {
+          Logger.info(`⏳ Initiating workspace edit: ${workspaceName}`);
+          const workspaceButton = page.getByRole('button', { name: `workspace-icon    ${workspaceName}` });
+          await workspaceButton.hover();
+          await workspaceButton.getByRole('button').first().click();
+          await page.getByRole('menuitem', { name: 'edit Edit' }).click();
+      });
+
+      await test.step('Update workspace details', async () => {
+          await page.getByPlaceholder('Enter Workspace Name').fill(`${workspaceName}a`);
+      });
+
+      await test.step('Save and verify changes', async () => {
+          await page.getByRole('button', { name: 'Update' }).click();
+      });
+
+      Logger.pass('✅ Workspace edited successfully');
   });
 }
-
 
 export async function logout(page) {
   await test.step('Logout from application', async () => {
