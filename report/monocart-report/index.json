@@ -1,13 +1,13 @@
 {
     "name": "Goperla 2.0 Automation Test Report",
     "logo": null,
-    "date": 1738686639562,
-    "dateH": "2/4/2025, 10:00:39 PM",
-    "duration": 63264,
-    "durationH": "1m 3s",
-    "cwd": "C:/Automation/Playwright Demo/GoPerla 2.0",
-    "outputFile": "C:\\Automation\\Playwright Demo\\GoPerla 2.0\\report\\monocart-report\\index.html",
-    "outputDir": "C:\\Automation\\Playwright Demo\\GoPerla 2.0\\report\\monocart-report",
+    "date": 1739524882537,
+    "dateH": "2/14/2025, 2:51:22 PM",
+    "duration": 2375,
+    "durationH": "2.4s",
+    "cwd": "C:/Automation/Goperla 2.0/Goperla_internal",
+    "outputFile": "C:\\Automation\\Goperla 2.0\\Goperla_internal\\report\\monocart-report\\index.html",
+    "outputDir": "C:\\Automation\\Goperla 2.0\\Goperla_internal\\report\\monocart-report",
     "metadata": {
         "actualWorkers": 1
     },
@@ -27,320 +27,50 @@
         "release": "10.0.19045",
         "type": "Windows_NT",
         "version": "Windows 10 Pro",
-        "uptime": 473951.437,
+        "uptime": 188594,
         "hostname": "TISED-075",
-        "pid": 10008,
+        "pid": 24340,
         "node": "20.14.0",
         "v8": "11.3.244.8-node.23",
-        "timestampStart": 1738686639562,
+        "timestampStart": 1739524882537,
         "ticks": [
             {
                 "cpu": {
-                    "percent": 12.1
+                    "percent": 12.16
                 },
                 "mem": {
-                    "free": 2361270272
+                    "free": 4329463808
                 },
-                "timestamp": 1738686641573
+                "timestamp": 1739524884555
             },
             {
                 "cpu": {
-                    "percent": 9.74
+                    "percent": 5.35
                 },
                 "mem": {
-                    "free": 2126102528
+                    "free": 4302094336
                 },
-                "timestamp": 1738686643588
-            },
-            {
-                "cpu": {
-                    "percent": 6.37
-                },
-                "mem": {
-                    "free": 2098110464
-                },
-                "timestamp": 1738686645617
-            },
-            {
-                "cpu": {
-                    "percent": 5.55
-                },
-                "mem": {
-                    "free": 2071375872
-                },
-                "timestamp": 1738686647643
-            },
-            {
-                "cpu": {
-                    "percent": 6.24
-                },
-                "mem": {
-                    "free": 2344382464
-                },
-                "timestamp": 1738686649666
-            },
-            {
-                "cpu": {
-                    "percent": 7.9
-                },
-                "mem": {
-                    "free": 2415521792
-                },
-                "timestamp": 1738686651689
-            },
-            {
-                "cpu": {
-                    "percent": 6.32
-                },
-                "mem": {
-                    "free": 2531123200
-                },
-                "timestamp": 1738686653709
-            },
-            {
-                "cpu": {
-                    "percent": 4.64
-                },
-                "mem": {
-                    "free": 2513354752
-                },
-                "timestamp": 1738686655725
-            },
-            {
-                "cpu": {
-                    "percent": 11.67
-                },
-                "mem": {
-                    "free": 2452713472
-                },
-                "timestamp": 1738686657729
-            },
-            {
-                "cpu": {
-                    "percent": 5.72
-                },
-                "mem": {
-                    "free": 2411307008
-                },
-                "timestamp": 1738686659752
-            },
-            {
-                "cpu": {
-                    "percent": 4.08
-                },
-                "mem": {
-                    "free": 2446651392
-                },
-                "timestamp": 1738686661768
-            },
-            {
-                "cpu": {
-                    "percent": 8.63
-                },
-                "mem": {
-                    "free": 2468007936
-                },
-                "timestamp": 1738686663778
-            },
-            {
-                "cpu": {
-                    "percent": 6.06
-                },
-                "mem": {
-                    "free": 2475421696
-                },
-                "timestamp": 1738686665795
-            },
-            {
-                "cpu": {
-                    "percent": 3.38
-                },
-                "mem": {
-                    "free": 2477125632
-                },
-                "timestamp": 1738686667816
-            },
-            {
-                "cpu": {
-                    "percent": 4.43
-                },
-                "mem": {
-                    "free": 2425176064
-                },
-                "timestamp": 1738686669840
-            },
-            {
-                "cpu": {
-                    "percent": 5.1
-                },
-                "mem": {
-                    "free": 2422816768
-                },
-                "timestamp": 1738686671850
-            },
-            {
-                "cpu": {
-                    "percent": 4.2
-                },
-                "mem": {
-                    "free": 2455719936
-                },
-                "timestamp": 1738686673873
-            },
-            {
-                "cpu": {
-                    "percent": 6.85
-                },
-                "mem": {
-                    "free": 2505949184
-                },
-                "timestamp": 1738686675892
-            },
-            {
-                "cpu": {
-                    "percent": 4.88
-                },
-                "mem": {
-                    "free": 2522730496
-                },
-                "timestamp": 1738686677916
-            },
-            {
-                "cpu": {
-                    "percent": 6.59
-                },
-                "mem": {
-                    "free": 2519928832
-                },
-                "timestamp": 1738686679933
-            },
-            {
-                "cpu": {
-                    "percent": 5.97
-                },
-                "mem": {
-                    "free": 2465849344
-                },
-                "timestamp": 1738686681956
-            },
-            {
-                "cpu": {
-                    "percent": 4.81
-                },
-                "mem": {
-                    "free": 2451775488
-                },
-                "timestamp": 1738686683974
-            },
-            {
-                "cpu": {
-                    "percent": 5.86
-                },
-                "mem": {
-                    "free": 2495275008
-                },
-                "timestamp": 1738686685996
-            },
-            {
-                "cpu": {
-                    "percent": 6.03
-                },
-                "mem": {
-                    "free": 2580631552
-                },
-                "timestamp": 1738686688006
-            },
-            {
-                "cpu": {
-                    "percent": 5.81
-                },
-                "mem": {
-                    "free": 2586640384
-                },
-                "timestamp": 1738686690012
-            },
-            {
-                "cpu": {
-                    "percent": 5.94
-                },
-                "mem": {
-                    "free": 2599129088
-                },
-                "timestamp": 1738686692021
-            },
-            {
-                "cpu": {
-                    "percent": 4.81
-                },
-                "mem": {
-                    "free": 2551615488
-                },
-                "timestamp": 1738686694038
-            },
-            {
-                "cpu": {
-                    "percent": 3.81
-                },
-                "mem": {
-                    "free": 2544312320
-                },
-                "timestamp": 1738686696048
-            },
-            {
-                "cpu": {
-                    "percent": 5.39
-                },
-                "mem": {
-                    "free": 2523987968
-                },
-                "timestamp": 1738686698061
-            },
-            {
-                "cpu": {
-                    "percent": 6.8
-                },
-                "mem": {
-                    "free": 2523930624
-                },
-                "timestamp": 1738686700075
-            },
-            {
-                "cpu": {
-                    "percent": 9.25
-                },
-                "mem": {
-                    "free": 2452582400
-                },
-                "timestamp": 1738686702094
-            },
-            {
-                "cpu": {
-                    "percent": 5.9
-                },
-                "mem": {
-                    "free": 2449240064
-                },
-                "timestamp": 1738686702826
+                "timestamp": 1739524884911
             }
         ],
         "workers": 1,
         "jobs": [
             {
-                "caseId": "c47f0c32da9e1d8b89b9",
+                "caseId": "bdff74605ef996d22f8c",
                 "parallelIndex": 0,
-                "workerIndex": 0,
-                "timestamp": 1738686640432,
-                "duration": 61338
+                "workerIndex": 8,
+                "timestamp": 1739524883550,
+                "duration": 328
             }
         ],
-        "cwd": "C:/Automation/Playwright Demo/GoPerla 2.0",
+        "cwd": "C:/Automation/Goperla 2.0/Goperla_internal",
         "configFile": "playwright.config.ts",
         "playwright": "1.49.1",
         "monocart": "2.9.12",
         "testDir": "tests",
         "outputFile": "report/monocart-report/index.html",
         "outputDir": "report/monocart-report",
-        "timestampEnd": 1738686702826
+        "timestampEnd": 1739524884912
     },
     "artifacts": [],
     "trends": [],
@@ -459,361 +189,200 @@
             "caseNum": 1,
             "subs": [
                 {
-                    "id": "630d0720d2eedac5cd6a",
-                    "title": "otp2.test.ts",
+                    "id": "9934587bd80ef7aa7f6f",
+                    "title": "example-1.spec.ts",
                     "type": "suite",
                     "suiteType": "file",
                     "caseNum": 1,
                     "subs": [
                         {
-                            "id": "c47f0c32da9e1d8b89b9",
-                            "title": "Open Google in first tab, Microsoft in second tab",
+                            "id": "bdff74605ef996d22f8c",
+                            "title": "example page loads",
                             "type": "case",
-                            "caseType": "failed",
-                            "ok": false,
-                            "outcome": "unexpected",
+                            "caseType": "passed",
+                            "ok": true,
+                            "outcome": "expected",
                             "expectedStatus": "passed",
-                            "location": "tests/otp2.test.ts:92:5",
+                            "location": "tests/example-1.spec.ts:3:5",
                             "logs": [
-                                "Opened Google in the first tab.\n",
-                                "Waiting for page to load\n",
-                                "Waited for 5 seconds\n",
-                                "Login to Microsoft called\n",
-                                "Filled email field\n",
-                                "Clicked Next button\n",
-                                "Verified password field\n",
-                                "Filled password field\n",
-                                "Verified Sign in button\n",
-                                "Clicked Sign in button\n",
-                                "Waiting for page to load\n",
-                                "Waited for 8 seconds\n",
-                                "Additional security verification required\n",
-                                "Waiting for page to load\n",
-                                "Waited for 8 seconds\n",
-                                "Verified Next button\n",
-                                "Clicked Next button\n",
-                                "No additional security verification required\n",
-                                "No stay signed in prompt\n",
-                                "No additional security verification required\n"
+                                "Hello world!\n",
+                                "🕒 Execution Time: 0.32s\n"
                             ],
                             "timestamps": [
-                                1738686640432,
-                                1738686701770
+                                1739524883550,
+                                1739524883878
                             ],
-                            "duration": 61338,
+                            "duration": 328,
+                            "annotations": [
+                                {
+                                    "type": "Test Browser",
+                                    "description": "chrome"
+                                },
+                                {
+                                    "type": "Test Status",
+                                    "description": "✅ Pass"
+                                },
+                                {
+                                    "type": "Execution Time",
+                                    "description": "0.32s"
+                                }
+                            ],
                             "tags": [],
                             "timeout": 60000,
-                            "errors": [
-                                "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m\n",
-                                "Error: locator.isVisible: expect.toBeVisible: expect.toBeVisible: Target page, context or browser has been closed\n\n\u001b[0m \u001b[90m 40 |\u001b[39m     \u001b[36mawait\u001b[39m handleAdditionalSecurityVerification(page)\u001b[33m;\u001b[39m\n \u001b[90m 41 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 42 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'solutiongetter@gmail.com'\u001b[39m)\u001b[33m.\u001b[39misVisible()) {\n \u001b[90m    |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\n    at loginToMicrosoft (C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:42:58)\n    at C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:110:5"
-                            ],
                             "retry": 0,
-                            "status": "timedOut",
-                            "stepNum": 33,
-                            "stepFailed": 2,
+                            "status": "passed",
+                            "stepNum": 17,
+                            "stepFailed": 0,
                             "stepSubs": true,
                             "subs": [
                                 {
-                                    "id": "v7t1rkszi9uwudldmctq",
+                                    "id": "40hzm4y6hkjd206biozk",
                                     "title": "Before Hooks",
                                     "type": "step",
                                     "stepType": "hook",
-                                    "duration": 230,
+                                    "duration": 255,
                                     "location": "",
                                     "subs": [
                                         {
-                                            "id": "u1hryztdb18em789ngkg",
+                                            "id": "406hgid9oke224tag8b9",
+                                            "title": "fixture: timeLogger",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 0,
+                                            "location": "tests/base.ts:3:26"
+                                        },
+                                        {
+                                            "id": "l86bnsxexfn7nq8nq1fc",
                                             "title": "fixture: browser",
                                             "type": "step",
                                             "stepType": "fixture",
-                                            "duration": 222,
+                                            "duration": 156,
                                             "location": "",
                                             "subs": [
                                                 {
-                                                    "id": "71hy9xhmkvethdn7n23l",
+                                                    "id": "bb8h50w3tv4fr28ev7d5",
                                                     "title": "browserType.connect",
                                                     "type": "step",
                                                     "stepType": "pw:api",
-                                                    "duration": 220,
+                                                    "duration": 152,
                                                     "location": ""
                                                 }
                                             ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "vax9qneq2rvh2704pfd2",
-                                    "title": "browser.newContext",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 13,
-                                    "location": "tests/otp2.test.ts:97:21"
-                                },
-                                {
-                                    "id": "tbkf2ov27xxar4jju62a",
-                                    "title": "browserContext.newPage",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 81,
-                                    "location": "tests/otp2.test.ts:100:33"
-                                },
-                                {
-                                    "id": "sg4ilxx3gxtjnrbc9c4o",
-                                    "title": "page.goto(https://www.google.com)",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 7449,
-                                    "location": "tests/otp2.test.ts:101:17"
-                                },
-                                {
-                                    "id": "jmvjraupxh1b4iie8c6f",
-                                    "title": "page.waitForLoadState",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 5,
-                                    "location": "tests/otp2.test.ts:103:17"
-                                },
-                                {
-                                    "id": "920sc34lz85jhtor87zh",
-                                    "title": "page.waitForTimeout",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 5020,
-                                    "location": "tests/otp2.test.ts:105:17"
-                                },
-                                {
-                                    "id": "s3m3wemnqrkc87ec484v",
-                                    "title": "browserContext.newPage",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 35,
-                                    "location": "tests/otp2.test.ts:109:33"
-                                },
-                                {
-                                    "id": "bpzqfwp3npn3mag16i0h",
-                                    "title": "page.goto(https://login.microsoftonline.com/)",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 3088,
-                                    "location": "tests/otp2.test.ts:23:16"
-                                },
-                                {
-                                    "id": "h0omn6vw1dk28a7zd7k3",
-                                    "title": "locator.getByPlaceholder('Email, phone, or Skype').fill",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 3198,
-                                    "location": "tests/otp2.test.ts:11:46"
-                                },
-                                {
-                                    "id": "so8a2f789b0e1aw2qdo2",
-                                    "title": "locator.getByRole('button', { name: 'Next' }).click",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 51,
-                                    "location": "tests/otp2.test.ts:26:54"
-                                },
-                                {
-                                    "id": "f9yblqg6pha6w0w502vw",
-                                    "title": "expect.toBeVisible",
-                                    "type": "step",
-                                    "stepType": "expect",
-                                    "duration": 1908,
-                                    "location": "tests/otp2.test.ts:29:73"
-                                },
-                                {
-                                    "id": "b35kdok1vpgfb0gzr3i4",
-                                    "title": "locator.getByPlaceholder('Password').fill",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 10,
-                                    "location": "tests/otp2.test.ts:11:46"
-                                },
-                                {
-                                    "id": "cgtxsffy9m5y4pmg6is8",
-                                    "title": "expect.toBeVisible",
-                                    "type": "step",
-                                    "stepType": "expect",
-                                    "duration": 14,
-                                    "location": "tests/otp2.test.ts:33:65"
-                                },
-                                {
-                                    "id": "7y6og48njcrqvgcjdhg9",
-                                    "title": "locator.getByRole('button', { name: 'Sign in' }).click",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 617,
-                                    "location": "tests/otp2.test.ts:14:58"
-                                },
-                                {
-                                    "id": "qnx57276kmyttevtt5t5",
-                                    "title": "page.waitForLoadState",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 1092,
-                                    "location": "tests/otp2.test.ts:4:16"
-                                },
-                                {
-                                    "id": "d2sjeau32uv4ukavir52",
-                                    "title": "page.waitForTimeout",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 8009,
-                                    "location": "tests/otp2.test.ts:6:16"
-                                },
-                                {
-                                    "id": "lu2d3u93nk3ujyuuacpi",
-                                    "title": "expect.toBeVisible",
-                                    "type": "step",
-                                    "stepType": "expect",
-                                    "duration": 17,
-                                    "location": "tests/otp2.test.ts:53:88"
-                                },
-                                {
-                                    "id": "szj0zbypukmlpuaoqc1s",
-                                    "title": "page.waitForLoadState",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 6,
-                                    "location": "tests/otp2.test.ts:4:16"
-                                },
-                                {
-                                    "id": "x6h5b8f88mn486juyj13",
-                                    "title": "page.waitForTimeout",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 8021,
-                                    "location": "tests/otp2.test.ts:6:16"
-                                },
-                                {
-                                    "id": "ewlw5dh9k4ddbudv6xwp",
-                                    "title": "expect.toBeVisible",
-                                    "type": "step",
-                                    "stepType": "expect",
-                                    "duration": 11,
-                                    "location": "tests/otp2.test.ts:58:66"
-                                },
-                                {
-                                    "id": "a6bza4jpevqy6sc9kc8k",
-                                    "title": "locator.getByRole('button', { name: 'Next' }).click",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": 8297,
-                                    "location": "tests/otp2.test.ts:14:58"
-                                },
-                                {
-                                    "id": "2z1avwf6e6o67e6y10a5",
-                                    "title": "page.waitForLoadState",
-                                    "type": "step",
-                                    "stepType": "pw:api",
-                                    "duration": -1,
-                                    "location": "tests/otp2.test.ts:4:16"
-                                },
-                                {
-                                    "id": "oqre9jm4sywkjly8b74m",
-                                    "title": "After Hooks",
-                                    "type": "step",
-                                    "stepType": "hook",
-                                    "duration": 1076,
-                                    "location": "",
-                                    "subs": [
-                                        {
-                                            "id": "0ilgz8flkcxuenyt3lck",
-                                            "title": "page.screenshot",
-                                            "type": "step",
-                                            "stepType": "pw:api",
-                                            "duration": 179,
-                                            "location": ""
                                         },
                                         {
-                                            "id": "ch155657wvfhv84ro22g",
-                                            "title": "page.screenshot",
-                                            "type": "step",
-                                            "stepType": "pw:api",
-                                            "duration": 1056,
-                                            "location": ""
-                                        },
-                                        {
-                                            "id": "t61v4adubzkwlb0euvid",
-                                            "title": "attach \"screenshot\"",
-                                            "type": "step",
-                                            "stepType": "attach",
-                                            "duration": 0,
-                                            "location": ""
-                                        },
-                                        {
-                                            "id": "zpeujcuvmbejy6gkkndl",
-                                            "title": "attach \"screenshot\"",
-                                            "type": "step",
-                                            "stepType": "attach",
-                                            "duration": 0,
-                                            "location": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "54gahqihb4nks9lplxcu",
-                                    "title": "Worker Cleanup",
-                                    "type": "step",
-                                    "stepType": "hook",
-                                    "duration": 16,
-                                    "location": "",
-                                    "subs": [
-                                        {
-                                            "id": "xjopfp8khsd3tvpcgtbh",
-                                            "title": "fixture: browser",
+                                            "id": "asuq5bw303lu4il2hs3s",
+                                            "title": "fixture: context",
                                             "type": "step",
                                             "stepType": "fixture",
-                                            "duration": 15,
+                                            "duration": 12,
+                                            "location": ""
+                                        },
+                                        {
+                                            "id": "tu6mnx9fci6wje37n4u9",
+                                            "title": "fixture: page",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 78,
                                             "location": "",
                                             "subs": [
                                                 {
-                                                    "id": "ulrz9woy3d0xsg2je814",
-                                                    "title": "expect.toBeVisible",
+                                                    "id": "931sgooja81gz8u3gg30",
+                                                    "title": "browserContext.newPage",
                                                     "type": "step",
-                                                    "stepType": "expect",
-                                                    "duration": 1,
-                                                    "location": "tests/otp2.test.ts:75:78",
-                                                    "errors": [
-                                                        "Error: expect.toBeVisible: Target page, context or browser has been closed\n\n\u001b[0m \u001b[90m 73 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m handleStaySignedInPrompt(page) {\n \u001b[90m 74 |\u001b[39m     \u001b[36mtry\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 75 |\u001b[39m         \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Stay signed in?'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\n    at handleStaySignedInPrompt (C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:75:78)\n    at loginToMicrosoft (C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:39:11)\n    at C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:110:5"
-                                                    ],
-                                                    "errorNum": 1
-                                                },
-                                                {
-                                                    "id": "m4ut8pecstmxb70vtcxn",
-                                                    "title": "expect.toBeVisible",
-                                                    "type": "step",
-                                                    "stepType": "expect",
-                                                    "duration": 3,
-                                                    "location": "tests/otp2.test.ts:53:88",
-                                                    "errors": [
-                                                        "Error: expect.toBeVisible: expect.toBeVisible: Target page, context or browser has been closed\n\n\u001b[0m \u001b[90m 51 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m handleAdditionalSecurityVerification(page) {\n \u001b[90m 52 |\u001b[39m     \u001b[36mtry\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m         \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'More information required'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\n    at handleAdditionalSecurityVerification (C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:53:88)\n    at loginToMicrosoft (C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:40:11)\n    at C:\\Automation\\Playwright Demo\\GoPerla 2.0\\tests\\otp2.test.ts:110:5"
-                                                    ],
-                                                    "errorNum": 1
+                                                    "stepType": "pw:api",
+                                                    "duration": 78,
+                                                    "location": ""
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "id": "gbd4uxf8v927j7b74kkc",
+                                            "title": "fixture: page",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 1,
+                                            "location": "tests/base.ts:3:26"
+                                        },
+                                        {
+                                            "id": "hbvcgbf63e1pqlrzi30m",
+                                            "title": "fixture: exceptionLogger",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 0,
+                                            "location": "tests/base.ts:3:26"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "cpsqjnmchs0brun62av0",
+                                    "title": "page.goto(data:text/html,<h1>Hello world!</h1>)",
+                                    "type": "step",
+                                    "stepType": "pw:api",
+                                    "duration": 29,
+                                    "location": "tests/example-1.spec.ts:4:14"
+                                },
+                                {
+                                    "id": "ue2mztq18swksmvkqfni",
+                                    "title": "expect.toBeVisible",
+                                    "type": "step",
+                                    "stepType": "expect",
+                                    "duration": 22,
+                                    "location": "tests/example-1.spec.ts:5:68"
+                                },
+                                {
+                                    "id": "lx3o0gl8b9qff0gbedg9",
+                                    "title": "After Hooks",
+                                    "type": "step",
+                                    "stepType": "hook",
+                                    "duration": 13,
+                                    "location": "",
+                                    "subs": [
+                                        {
+                                            "id": "kcfalged8wy64o5etxlh",
+                                            "title": "fixture: exceptionLogger",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 0,
+                                            "location": "tests/base.ts:3:26"
+                                        },
+                                        {
+                                            "id": "web4a2sj8jfs7yoga08i",
+                                            "title": "fixture: page",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 0,
+                                            "location": "tests/base.ts:3:26"
+                                        },
+                                        {
+                                            "id": "au46bx1re4jjbjpfbclf",
+                                            "title": "fixture: page",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 0,
+                                            "location": ""
+                                        },
+                                        {
+                                            "id": "u07n3kf8vbfvvwlx431w",
+                                            "title": "fixture: context",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 10,
+                                            "location": ""
+                                        },
+                                        {
+                                            "id": "jbvfispjs0n9zqrf2qvd",
+                                            "title": "fixture: timeLogger",
+                                            "type": "step",
+                                            "stepType": "fixture",
+                                            "duration": 0,
+                                            "location": "tests/base.ts:3:26"
                                         }
                                     ]
                                 }
-                            ],
-                            "attachments": [
-                                {
-                                    "name": "screenshot",
-                                    "path": "attachments/9af2352384a593809870a707bee1dc44082929c4.png",
-                                    "contentType": "image/png",
-                                    "retry": 0
-                                },
-                                {
-                                    "name": "screenshot",
-                                    "path": "attachments/f3af918c36a0c33dd06434a1af2c7fe511c1e51c.png",
-                                    "contentType": "image/png",
-                                    "retry": 0
-                                }
-                            ],
-                            "errorNum": 2
+                            ]
                         }
                     ],
-                    "location": "tests/otp2.test.ts:0:0"
+                    "location": "tests/example-1.spec.ts:0:0"
                 }
             ],
             "metadata": {}
@@ -845,11 +414,11 @@
         },
         "failed": {
             "name": "Failed",
-            "value": 1,
+            "value": 0,
             "color": "#d00",
             "nav": true,
             "id": "failed",
-            "percent": "100.0%"
+            "percent": "0.0%"
         },
         "flaky": {
             "name": "Flaky",
@@ -869,15 +438,15 @@
         },
         "passed": {
             "name": "Passed",
-            "value": 0,
+            "value": 1,
             "color": "green",
             "nav": true,
             "id": "passed",
-            "percent": "0.0%"
+            "percent": "100.0%"
         },
         "steps": {
             "name": "Steps",
-            "value": 33,
+            "value": 17,
             "id": "steps"
         },
         "suites": {
@@ -912,7 +481,7 @@
         "errors": {
             "name": "Errors",
             "icon": "error",
-            "value": 4,
+            "value": 0,
             "id": "errors"
         },
         "retries": {
@@ -924,13 +493,13 @@
         "logs": {
             "name": "Logs",
             "icon": "log",
-            "value": 20,
+            "value": 2,
             "id": "logs"
         },
         "attachments": {
             "name": "Attachments",
             "icon": "attachment",
-            "value": 2,
+            "value": 0,
             "id": "attachments"
         },
         "artifacts": {
@@ -943,7 +512,7 @@
         "width": 360,
         "height": 150,
         "margin": 10,
-        "svg": "<svg viewBox=\"0 0 360 150\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\"><g class=\"mcr-pie-path-failed\"><path d=\"M75,75 L75,10 A65,65 0 1 1 75,140 A65,65 0 1 1 75,10 z\" fill=\"#d00\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g class=\"mcr-pie-path-flaky\"><path d=\"\" fill=\"orange\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,-10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g class=\"mcr-pie-path-skipped\"><path d=\"\" fill=\"gray\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,-10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g class=\"mcr-pie-path-passed\"><path d=\"\" fill=\"green\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,-10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g transform=\"translate(160 15)\"><g class=\"mcr-pie-legend-failed\" transform=\"translate(0 0)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"#d00\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Failed</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">1</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">100.0%</text></g><g class=\"mcr-pie-legend-flaky\" transform=\"translate(0 30)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"orange\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Flaky</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">0</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">0.0%</text></g><g class=\"mcr-pie-legend-skipped\" transform=\"translate(0 60)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"gray\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Skipped</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">0</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">0.0%</text></g><g class=\"mcr-pie-legend-passed\" transform=\"translate(0 90)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"green\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Passed</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">0</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">0.0%</text></g></g></svg>"
+        "svg": "<svg viewBox=\"0 0 360 150\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\"><g class=\"mcr-pie-path-failed\"><path d=\"\" fill=\"#d00\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,-10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g class=\"mcr-pie-path-flaky\"><path d=\"\" fill=\"orange\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,-10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g class=\"mcr-pie-path-skipped\"><path d=\"\" fill=\"gray\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,-10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g class=\"mcr-pie-path-passed\"><path d=\"M75,75 L75,10 A65,65 0 1 1 75,140 A65,65 0 1 1 75,10 z\" fill=\"green\" opacity=\"0.8\" /><animateTransform from=\"0,0\" to=\"0,0\" pos=\"0,10\" attributeName=\"transform\" type=\"translate\" dur=\"0.2s\" fill=\"freeze\" repeatCount=\"1\" restart=\"always\" /></g><g transform=\"translate(160 15)\"><g class=\"mcr-pie-legend-failed\" transform=\"translate(0 0)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"#d00\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Failed</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">0</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">0.0%</text></g><g class=\"mcr-pie-legend-flaky\" transform=\"translate(0 30)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"orange\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Flaky</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">0</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">0.0%</text></g><g class=\"mcr-pie-legend-skipped\" transform=\"translate(0 60)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"gray\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Skipped</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">0</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">0.0%</text></g><g class=\"mcr-pie-legend-passed\" transform=\"translate(0 90)\"><circle cx=\"10\" cy=\"15\" r=\"10\" fill=\"green\" opacity=\"0.8\" /><text x=\"30\" y=\"15\" alignment-baseline=\"middle\">Passed</text><text x=\"115\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"middle\">1</text><text x=\"190\" y=\"15\" alignment-baseline=\"middle\" text-anchor=\"end\">100.0%</text></g></g></svg>"
     },
     "htmlPath": "report/monocart-report/index.html"
 }
