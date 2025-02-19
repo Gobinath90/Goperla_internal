@@ -16,7 +16,7 @@ export const UserDetails = {
     NPI: '757-555-1212',
     mobileNumber: '276-555-1212',
     phoneNumber: '757-555-1212',
-    domain:'healthPointer',
+    domain:'testerdomain',
     website: 'https://healthpointernhfgroup.com/'
   } as const
   
@@ -49,3 +49,12 @@ export const AddressDetails = {
     userCount: 10
   } as const
   
+  export const WorkspaceDetails = {
+    name: 'Workspace Name ',
+    description: 'Workspace Description '
+}
+
+export const SubsidiaryDetails = {
+    name: 'Subsidiary Name ',
+    description: 'Subsidiary Description '
+}

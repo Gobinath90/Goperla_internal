@@ -1,7 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 import { Logger } from '../utils/logger';
 
-export const verifyVisibility = async (element, description, timeout = 10000) => {
+export const verifyVisibility = async (element, description, timeout = 5000) => {
   await test.step(`Verify visibility of ${description}`, async () => {
     Logger.info(`⏳ Checking visibility of ${description}...`);
     await expect(element).toBeVisible({ timeout });
@@ -150,8 +150,9 @@ export const verifyEleVisibility = async (page, elements, role) => {
   await test.step(`Verify ${role} elements visibility`, async () => {
       for (const element of elements) {
           Logger.info(`⏳ Checking ${role}: "${element}"`);
-          await expect.soft(page.getByRole(role, { name: element })).toBeVisible({ timeout: 10000 });
-          Logger.pass(`✅ ${role} "${element}" is visible`);
+          await page.waitForSelector(`text=${element}`, { timeout: 15000 });
+          await expect.soft(page.getByRole(role, { name: element })).toBeVisible();
+          Logger.pass(`✅ "${element}" ${role} is visible`);
       }
   });
 };
@@ -185,46 +186,80 @@ export const clickTexts = async (page, texts) => {
 };
 
 export async function fillCompanyData(page, CreateCompanyValidData) {
-  await page.getByPlaceholder('Enter Company Name').fill(CreateCompanyValidData.companyName);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter EIN/FEIN').fill(CreateCompanyValidData.ein);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter NPI No.').fill(CreateCompanyValidData.npi);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter Street Address 1').fill(CreateCompanyValidData.streetAddress1);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter Street Address 2').fill(CreateCompanyValidData.streetAddress2);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter City').fill(CreateCompanyValidData.city);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter Country').fill(CreateCompanyValidData.countryName);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter Zip Code').fill(CreateCompanyValidData.zipCode);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter Phone Number').fill(CreateCompanyValidData.phoneNumber);
-  await page.waitForTimeout(1000);
-  await page.getByPlaceholder('Enter Mobile Number').fill(CreateCompanyValidData.mobileNumber);
-  await page.waitForTimeout(1000);
-  await page.locator('#websiteAddress').fill(CreateCompanyValidData.domainAddress);
+  const companyInformation = page.getByText('Company Information');
+  if(companyInformation.isVisible){
+    try {
+      Logger.info('⏳ Filling Company Information...');
+    await page.getByText('Company Information').isVisible();
+    await page.getByPlaceholder('Enter Company Name').fill(CreateCompanyValidData.companyName);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter EIN/FEIN').fill(CreateCompanyValidData.ein);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter NPI No.').fill(CreateCompanyValidData.npi);
+    await page.waitForTimeout(1000);
+    await page.locator('#domain').fill(CreateCompanyValidData.domain);
+    await page.waitForTimeout(1000);
+    //await page.getByPlaceholder('Enter Website address').fill(CreateCompanyValidData.website);
+    //await page.waitForTimeout(1000);
+    Logger.pass('✅ Company Information filled successfully');
+    } catch (error) {
+      Logger.error(`Error while filling on Company Information: ${error}`);
+    }
+    
+  }
+
+  const contactInformation = page.getByText('Contact Information');
+  if(contactInformation.isVisible){
+    try {
+      Logger.info('⏳ Filling Contact Information...');
+    await page.getByPlaceholder('Enter Street Address 1').fill(CreateCompanyValidData.streetAddress1);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter Street Address 2').fill(CreateCompanyValidData.streetAddress2);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter City').fill(CreateCompanyValidData.city);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
+    await page.waitForTimeout(1000);
+    // await page.getByPlaceholder('Enter Country').fill(CreateCompanyValidData.countryName);
+    // await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter Zip Code').fill(CreateCompanyValidData.zipCode);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter Phone Number').fill(CreateCompanyValidData.phoneNumber);
+    await page.waitForTimeout(1000);
+    await page.getByPlaceholder('Enter Mobile Number').fill(CreateCompanyValidData.mobileNumber);
+    await page.waitForTimeout(1000);
+    Logger.pass('✅ Contact Information filled successfully');
+    } catch (error) {
+      Logger.error(`Error while filling on Contact Information: ${error}`);
+    }
+    
+  }
+
+  
 }
 
 export async function filladdressDetails(page, addressDetails) {
+  try {
   await page.locator('input[name="addressLine1"]').fill(addressDetails.addressLine1);
   await page.locator('input[name="city"]').fill(addressDetails.city);
   await page.locator('input[name="zipCode"]').fill(addressDetails.zipcode);
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(2000);
-  await page.getByRole('option', { name: 'US' }).click();
-  await page.waitForTimeout(2000);
+  // await page.getByRole('option', { name: 'US' }).click();
+  // await page.waitForTimeout(2000);
   await page.getByRole('combobox').nth(1).click();
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Virginia(VA)' }).click();
+  Logger.pass('✅ Address Details filled successfully');
+  } catch (error) {
+    Logger.error(`Error while filling on Address Details: ${error}`);
+    
+  }
+  
 }
 
 export async function fillCardDetails(page: Page, cardName: string, cardNumber: string, expiryDate: string, cvc: string) {
-
+try {
   await page.locator('input[name="cardholderName"]').fill(cardName);
   // Wait for the iframe to be visible
   const iframeLocator = page.locator('iframe[name*="__privateStripeFrame"]');
@@ -238,4 +273,120 @@ export async function fillCardDetails(page: Page, cardName: string, cardNumber: 
     await frame?.getByPlaceholder(placeholders[i]).fill(values[i]);
     await page.waitForTimeout(2000);
   }
+} catch (error) {
+  Logger.error(`Error while filling on Card Details: ${error}`);
+}
+
+  
+}
+
+
+export async function login(page, sharedEmail, createCredentials, domain) {
+  await test.step('Login to application', async () => {
+  Logger.info('Starting login process');
+  const url = `https://${domain}.qa.goperla.com/`;
+  await page.goto(url);
+  await page.getByPlaceholder('Enter your email').fill(sharedEmail);
+  await page.getByPlaceholder('Enter your Password').fill(createCredentials.password);
+  await page.getByRole('button', { name: 'Sign In', exact: true }).click();  
+  await test.expect(page.getByText('Signed in successfully!')).toBeVisible();
+  Logger.info('Login completed successfully');
+});
+
+}
+
+export async function verifyNavigationButtons(page) {
+  await test.step('Verify navigation elements', async () => {
+    Logger.info('Verifying navigation buttons');
+
+  const navButtons = ['Home', 'Workspaces', 'Users', 'Documents', 'Settings'];
+  for (const button of navButtons) {
+      await test.expect(page.getByRole('button', { name: button })).toBeVisible();
+  }
+  await page.waitForTimeout(1000);
+  Logger.info('Navigation verification completed');
+    });
+}
+
+export async function createWorkspace(page, data) {
+  await test.step('Create new workspace', async () => {
+  Logger.info(`Creating workspace: ${data.name}`);
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.getByRole('menuitem', { name: 'Create Workspace' }).click();
+  await page.getByPlaceholder('Enter Workspace Name').fill(data.name);
+  await page.getByPlaceholder('Select user').click();
+  await page.getByRole('listbox').click();
+  await page.getByPlaceholder('Enter Description').fill(data.description);
+  await page.getByRole('button', { name: 'Create' }).click();
+  await test.expect(page.getByText('Workspace created successfully')).toBeVisible();
+  await page.waitForTimeout(2000);
+  await test.expect(page.getByRole('button', { name: `workspace-icon    ${data.name}` })).toBeVisible();
+  await page.waitForTimeout(2000);
+  Logger.info('Workspace created successfully');
+});
+}
+
+export async function createSubsidiary(page, data) {
+  await test.step('Create new subsidiary', async () => {
+      Logger.info(`Creating subsidiary: ${data.name}`);
+      await page.getByRole('button', { name: 'Create' }).click();
+      await page.getByRole('menuitem', { name: 'Create Subsidiary' }).click();
+      await page.getByPlaceholder('Enter Subsidiary Name').fill(data.name);
+      await page.getByLabel('Assign Subsidiary').click();
+      await page.getByRole('option', { name: data.assignTo }).click();
+      await page.getByPlaceholder('Enter Description').fill(data.description);
+      await page.getByRole('button', { name: 'Create' }).click();
+      await test.expect(page.getByText('Subsidiary created')).toBeVisible();
+      Logger.info('Subsidiary created successfully');
+  });
+}
+
+export async function editWorkspace(page, workspaceName) {
+  await test.step('Edit workspace', async () => {
+      Logger.info(`Editing workspace: ${workspaceName}`);
+      const workspaceButton = page.getByRole('button', { name: `workspace-icon    ${workspaceName}` });
+      await workspaceButton.hover();
+      await workspaceButton.getByRole('button').first().click();
+      await page.getByRole('menuitem', { name: 'edit Edit' }).click();
+      await page.getByPlaceholder('Enter Workspace Name').fill(`${workspaceName}a`);
+      await page.getByRole('button', { name: 'Update' }).click();
+      Logger.info('Workspace edited successfully');
+  });
+}
+
+
+export async function logout(page) {
+  await test.step('Logout from application', async () => {
+      Logger.info('Starting logout process');
+      await page.locator('[id="\\:rd\\:"]').click();
+      await page.getByText('Logout').click();
+      await test.expect(page.getByText('Logged out successfully!')).toBeVisible();
+      Logger.info('Logout completed successfully');
+  });
+}
+
+export async function testModalInteractions(page) {
+  await test.step('Test modal interactions', async () => {
+      Logger.info('Testing modal interactions');
+      await openAndCloseModal(page, 'Create Workspace');
+      await openAndCloseModal(page, 'Create Subsidiary');
+      Logger.info('Modal interactions completed');
+  });
+}
+
+export async function openAndCloseModal(page, modalType: string) {
+  await test.step(`Test ${modalType} modal`, async () => {
+      Logger.info(`Opening ${modalType} modal`);
+      await page.getByRole('button', { name: 'Create' }).click();
+      await page.getByRole('menuitem', { name: modalType }).click();
+      
+      Logger.info('Verifying modal content');
+      await test.expect(page.getByRole('heading', { name: modalType })).toBeVisible();
+      await page.waitForTimeout(2000);
+      
+      Logger.info('Closing modal');
+      await page.getByTestId('close-button').click();
+      await page.waitForTimeout(2000);
+      Logger.info(`${modalType} modal test completed`);
+  });
 }

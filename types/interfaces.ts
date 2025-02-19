@@ -42,6 +42,17 @@ interface CreditCardAddress {
   	billingEmail: string
 	
 }
+
+export interface WorkspaceData {
+    name: string;
+    description: string;
+}
+
+export interface SubsidiaryData {
+    name: string;
+    description: string;
+    assignTo: string;
+}
 interface Page {
   // define the properties of the page object
 }
@@ -52,6 +63,8 @@ interface MyFixtures {
 	createCompanyValidData: CompanyValidData
 	createBillingAddress: CreditCardAddress
 	createACHAddress: CreateBillingAddress
+	createWorkspaceData: WorkspaceData;
+    createSubsidiaryData: SubsidiaryData;
 }
 export {
 	CreateBillingAddress,

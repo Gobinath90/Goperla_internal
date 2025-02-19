@@ -5,7 +5,7 @@
   "scripts": {
     "pretest": "tsc --noEmit",
     "update:playwright": "playwright install --with-deps",
-    "test:record": "npx playwright codegen --viewport-size=1680,1050  http://3.80.32.182:3000",
+    "test:record": "npx playwright codegen --viewport-size=1680,1050  https://marketing.qa.goperla.com",
     "tests": "cross-env ENV=test npx playwright test --headed",
     "test": "npx playwright test --ignore-https-errors --headed",
     "test:chrome": "npx playwright test --project=Chrome",

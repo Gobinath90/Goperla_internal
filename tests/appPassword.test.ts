@@ -82,7 +82,7 @@ class AuthenticationHelper {
 		const otherWayLink = page.locator(SELECTORS.otherWay)
 		try {
 			await page.locator(`${SELECTORS.submit}[value='Yes']`).click()
-			await otherWayLink.waitFor({ timeout: 10000 })
+			await otherWayLink.waitFor({ timeout: 3000 })
 			if (await otherWayLink.isVisible()) {
 				await otherWayLink.click()
 				await page.locator(SELECTORS.phoneAppOtp).click()

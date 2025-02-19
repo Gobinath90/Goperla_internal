@@ -1,5 +1,4 @@
 export const testDir = './tests';
-export const timeout = 60000;
 export const retries = process.env.CI ? 2 : 1;
 export const workers = process.env.CI ? 1 : 1;
 export const fullyParallel = true;
@@ -21,7 +20,7 @@ function getBaseUrl() {
   if (!environment) return 'http://3.80.32.182:3000';
   switch (environment) {
     case 'qa':
-      return 'http://3.80.32.182:3000';
+      return 'https://marketing.qa.goperla.com';
     case 'dev':
       return 'https://marketing-dev.goperla.com';
     case 'prod':
@@ -44,9 +43,9 @@ export const projects = [
       browserName: `chromium`,
       channel: `chrome`,
       headless: false,
-      screenshot: `only-on-failure`,
-      video: `retain-on-failure`,
-      trace: `retain-on-failure`,
+      screenshot: `on`,
+      video: `on`,
+      trace: `on`,
       actionTimeout: 60000,
       viewport: null,
       deviceScaleFactor: undefined,

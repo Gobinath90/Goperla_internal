@@ -3,22 +3,26 @@ import {
 	UserDetails,
 	AddressDetails,
 	CompanyDetails,
-	PaymentCard
+	PaymentCard,
+	WorkspaceDetails,
+    SubsidiaryDetails
 } from '../fixture/testdata'
 import { getOrCreateCounter } from '../utils/counter'
 import {
 	MyFixtures,
 	CreateCredentials,
 	CompanyValidData,
-	CreditCardAddress
+	CreditCardAddress,
+	WorkspaceData,
+    SubsidiaryData
 } from '../types/interfaces'
 
 export const test = base.extend<MyFixtures>({
 	generatedEmail: [
 		async ({}, use) => {
 			const counter = getOrCreateCounter()
-			//const email = `dorothy.wilson+${counter}@healthPointerGroup.com`
-			const email = `gp2_test+${counter}@twilightitsolutions.com`
+			//const email = `dorothy.wilson+000${counter}@healthPointerGroup.com`
+			const email = `gp2_test+000${counter}@twilightitsolutions.com`
 			await use(email)
 		},
 		{ scope: 'test' }
@@ -74,8 +78,8 @@ export const test = base.extend<MyFixtures>({
 				emailAddress: generatedEmail,
 				phoneNumber: CompanyDetails.phoneNumber,
 				mobileNumber: CompanyDetails.mobileNumber,
-				domainAddress: `${CompanyDetails.companyName} ${counter}`,
-				websiteAddress: `https://healthpointernhfgroup${counter}.com/`
+				domainAddress: `${CompanyDetails.domain}${counter}`,
+				websiteAddress: CompanyDetails.website,
 			}
 
 			await use(companyData)
@@ -83,5 +87,29 @@ export const test = base.extend<MyFixtures>({
 		{ scope: 'test' }
 	],
 
+	createWorkspaceData: [
+        async ({ generatedEmail }, use) => {
+            const counter = generatedEmail.match(/\+(\d+)@/)?.[1] || '1'
+            const workspaceData: WorkspaceData = {
+                name: `${WorkspaceDetails.name}${counter}`,
+                description: `${WorkspaceDetails.description}${counter}`
+            }
+            await use(workspaceData)
+        },
+        { scope: 'test' }
+    ],
+
+    createSubsidiaryData: [
+        async ({ generatedEmail, createWorkspaceData }, use) => {
+			const counter = generatedEmail.match(/\+(\d+)@/)?.[1] || '1'
+            const subsidiaryData: SubsidiaryData = {
+                name: `${SubsidiaryDetails.name}${counter}`,
+                description: `${SubsidiaryDetails.description}${counter}`,
+                assignTo: createWorkspaceData.name
+            }
+            await use(subsidiaryData)
+        },
+        { scope: 'test' }
+    ]
 	
 })

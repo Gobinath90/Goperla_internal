@@ -143,7 +143,7 @@ test.describe('Signup Page Tests', () => {
     await fillAndSubmitForm(signUpPage, { email: dynamicEmail, password: password, confirmPassword: confirmPassword });
     await verifyVisibility(page.getByText('Verification code sent'), 'Verification code sent successfully!');
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(3000);
     await page.waitForURL(`${baseURL}${pagePaths.otpVerfication}`);
     Logger.info('Network is idle, proceeding with OTP input.');
     await verifyEleVisibility(page, ['OTP Verification'], 'heading');
@@ -163,7 +163,7 @@ test.describe('Signup Page Tests', () => {
     await clickElementsByRole(page, ['Submit'], 'button');
     await verifyVisibility(page.getByText('Verified successfully!'), 'Verified successfully Toast message is Showing successfully');
     await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(3000);
     await page.waitForURL(`${baseURL}${pagePaths.subscription}`);
     await verifyEleVisibility(page, ['Add one company data', 'Streamline your data', 'Organization Overview'], 'heading');
     await verifyTextVisibility(page, [
@@ -201,7 +201,7 @@ test.describe('Signup Page Tests', () => {
         'Basic', 'Essential']);
       await verifyEleVisibility(page, ['Transparent pricing with no'], 'heading');
       await page.locator("(//div[contains(@class,'mb-4 mt-5')]//button)[1]").click();
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
       // Verify Review & Payment UI elements
 
       await verifyEleVisibility(page, ['Review & Make Payment'], 'heading');
