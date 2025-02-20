@@ -351,7 +351,6 @@ export async function login(page, sharedEmail, createCredentials, domain) {
   });
 }
 
-
 export async function verifyNavigationButtons(page) {
   await test.step('Verify navigation elements', async () => {
     Logger.info('Verifying navigation buttons');
@@ -365,75 +364,84 @@ export async function verifyNavigationButtons(page) {
     });
 }
 
-export async function createWorkspace(page, data) {
-  await test.step('Create new workspace', async () => {
-    await test.step('Open workspace creation modal', async () => {
-        Logger.info(`⏳ Initiating workspace creation: ${data.name}`);
+export async function createWorkspace(page, workspaceList) {
+  for (const workspace of workspaceList) {
+    await test.step(`Create workspace: ${workspace.name}`, async () => {
+      await test.step('Open workspace creation modal', async () => {
+        Logger.info(`⏳ Initiating workspace creation: ${workspace.name}`);
         await page.getByRole('button', { name: 'Create' }).click();
         await page.getByRole('menuitem', { name: 'Create Workspace' }).click();
+      });
+      await test.step('Fill workspace details', async () => {
+        await page.getByPlaceholder('Enter Workspace Name').fill(workspace.name);
+        await page.getByPlaceholder('Select user').click();
+        await page.getByRole('listbox').click();
+        await page.getByPlaceholder('Enter Description').fill(workspace.description);
+      });
+      await test.step('Submit and verify workspace creation', async () => {
+        await page.getByRole('button', { name: 'Create' }).click();
+        await test.expect(page.getByText('Workspace created successfully')).toBeVisible();
+        await page.waitForTimeout(2000);
+        await test.expect(page.getByRole('button', { name: `workspace-icon    ${workspace.name}` })).toBeVisible();
+        await page.waitForTimeout(2000);
+      });
+      Logger.info('Workspace created successfully');
     });
-    await test.step('Fill workspace details', async () => {
-      await page.getByPlaceholder('Enter Workspace Name').fill(data.name);
-      await page.getByPlaceholder('Select user').click();
-      await page.getByRole('listbox').click();
-      await page.getByPlaceholder('Enter Description').fill(data.description);
-    });
-    await test.step('Submit and verify workspace creation', async () => {
-      await page.getByRole('button', { name: 'Create' }).click();
-      await test.expect(page.getByText('Workspace created successfully')).toBeVisible();
-      await page.waitForTimeout(2000);
-      await test.expect(page.getByRole('button', { name: `workspace-icon    ${data.name}` })).toBeVisible();
-      await page.waitForTimeout(2000);
-    });
-    Logger.info('Workspace created successfully');
-  });
+  }
 }
 
-export async function createSubsidiary(page, data) {
-  await test.step('Create new subsidiary', async () => {
+export async function createSubsidiary(page, subsidiaryList) {
+  for (const subsidiary of subsidiaryList) {
+    await test.step(`Create subsidiary: ${subsidiary.name}`, async () => {
       await test.step('Open subsidiary creation modal', async () => {
-          Logger.info(`⏳ Initiating subsidiary creation: ${data.name}`);
-          await page.getByRole('button', { name: 'Create' }).click();
-          await page.getByRole('menuitem', { name: 'Create Subsidiary' }).click();
+        Logger.info(`⏳ Initiating subsidiary creation: ${subsidiary.name}`);
+        await page.getByRole('button', { name: 'Create' }).click();
+        await page.getByRole('menuitem', { name: 'Create Subsidiary' }).click();
       });
 
       await test.step('Fill subsidiary details', async () => {
-          await page.getByPlaceholder('Enter Subsidiary Name').fill(data.name);
-          await page.getByLabel('Assign Subsidiary').click();
-          await page.getByRole('option', { name: data.assignTo }).click();
-          await page.getByPlaceholder('Enter Description').fill(data.description);
+        await page.getByPlaceholder('Enter Subsidiary Name').fill(subsidiary.name);
+        await page.getByLabel('Assign Subsidiary').click();
+        await page.getByRole('option', { name: subsidiary.assignTo }).click();
+        await page.getByPlaceholder('Enter Description').fill(subsidiary.description);
       });
 
       await test.step('Submit and verify subsidiary creation', async () => {
-          await page.getByRole('button', { name: 'Create' }).click();
-          await test.expect(page.getByText('Subsidiary created')).toBeVisible();
+        await page.getByRole('button', { name: 'Create' }).click();
+        await test.expect(page.getByText('Subsidiary created')).toBeVisible();
       });
 
-      Logger.pass('✅ Subsidiary created successfully');
-  });
+      Logger.pass(`✅ Subsidiary ${subsidiary.name} created successfully`);
+    });
+  }
 }
 
-export async function editWorkspace(page, workspaceName) {
-  await test.step('Edit workspace', async () => {
+
+export async function editWorkspace(page, workspaceList) {
+  for (const workspace of workspaceList) {
+    await test.step(`Edit workspace: ${workspace.name}`, async () => {
       await test.step('Open workspace edit modal', async () => {
-          Logger.info(`⏳ Initiating workspace edit: ${workspaceName}`);
-          const workspaceButton = page.getByRole('button', { name: `workspace-icon    ${workspaceName}` });
-          await workspaceButton.hover();
-          await workspaceButton.getByRole('button').first().click();
-          await page.getByRole('menuitem', { name: 'edit Edit' }).click();
+        Logger.info(`⏳ Initiating workspace edit: ${workspace.name}`);
+        const workspaceButton = page.getByRole('button', { name: `workspace-icon ${workspace.name}` });
+        await workspaceButton.hover();
+        await workspaceButton.getByRole('button').first().click();
+        await page.getByRole('menuitem', { name: 'edit Edit' }).click();
       });
 
       await test.step('Update workspace details', async () => {
-          await page.getByPlaceholder('Enter Workspace Name').fill(`${workspaceName}a`);
+        await page.getByPlaceholder('Enter Workspace Name').fill(`${workspace.name}a`);
       });
 
       await test.step('Save and verify changes', async () => {
-          await page.getByRole('button', { name: 'Update' }).click();
+        await page.getByRole('button', { name: 'Update' }).click();
+        await test.expect(page.getByText('Workspace updated successfully')).toBeVisible();
       });
 
-      Logger.pass('✅ Workspace edited successfully');
-  });
+      Logger.pass(`✅ Workspace ${workspace.name} edited successfully`);
+    });
+  }
 }
+
 
 export async function logout(page) {
   await test.step('Logout from application', async () => {
@@ -469,4 +477,10 @@ export async function openAndCloseModal(page, modalType: string) {
       await page.waitForTimeout(2000);
       Logger.info(`${modalType} modal test completed`);
   });
+}
+
+export async function createMultipleWorkspaces(page, workspaceList) {
+  for (const workspaceData of workspaceList) {
+    await createWorkspace(page, workspaceData);
+  }
 }

@@ -16,7 +16,8 @@ import {
 	createSubsidiary,
 	editWorkspace,
 	logout,
-	testModalInteractions
+	testModalInteractions,
+	createMultipleWorkspaces
 } from '../../utils/test-helpers'
 import { AuthenticationHelper } from '../../utils/authenticationHelperm'
 
@@ -82,31 +83,32 @@ test.describe('Email Generation Suite', () => {
 		await page.waitForTimeout(3000)
 	})
 
-	test('Workspace and Subsidiary Management Flow', async ({
-		page,
-		createCompanyValidData,
-		createCredentials
-	}) => {
-		const workspaceData = {
-			name: 'Workspace_R-Virginia',
-			description: 'Workspace_R-Virginia'
-		}
-		const subsidiaryData = {
-			name: 'Entity_sub_Virginia_Beach_NHF',
-			description: 'Entity_sub_Virginia_Beach_NHF',
-			assignTo: 'Workspace_R-Virginia'
-		}
+	test('Workspace and Subsidiary Management Flow', async ({ page, createCompanyValidData, createCredentials }) => {
+		const workspaceList = [
+			{ name: 'Workspace_R-Virginia', description: 'Workspace_R-Virginia' },
+			{ name: 'Workspace_R-Maryland', description: 'Workspace_R-Maryland' },
+			{ name: 'Workspace_R-Washington_DC', description: 'Workspace_R-Washington_DC' },
+			{ name: 'Workspace_R-California', description: 'Workspace_R-California' }
+		  ];
+		const subsidiaryList = [
+			{ name: 'Entity_sub_Virginia_Beach_NHF', description: 'Entity_sub_Virginia_Beach_NHF', assignTo: 'Workspace_R-Virginia' },
+			{ name: 'Entity_sub_Norfolk_NHF', description: 'Entity_sub_Norfolk_NHF', assignTo: 'Workspace_R-Virginia' },
+			{ name: 'Entity_sub_Chesapeake_VAH', description: 'Entity_sub_Chesapeake_VAH', assignTo: 'Workspace_R-Virginia' },
+			{ name: 'Entity_sub_Baltimore_VAH', description: 'Entity_sub_Baltimore_VAH', assignTo: 'Workspace_R-Marylanda' },
+			{ name: 'Entity_sub_Germantown_NHF', description: 'Entity_sub_Germantown_NHF', assignTo: 'Workspace_R-Maryland' },
+			{ name: 'Entity_sub_Ward6_VAH', description: 'Entity_sub_Ward6_VAH', assignTo: 'Workspace_R-Washington_DC' },
+			{ name: 'Entity_sub_OC_North_SNF', description: 'Entity_sub_OC_North_SNF', assignTo: 'Workspace_R-California' },
+			{ name: 'Entity_sub_San_Diego_SNF', description: 'Entity_sub_San_Diego_SNF', assignTo: 'Workspace_R-California' }
+		  ];
 
-		const domain = createCompanyValidData.domainAddress
-			.toLowerCase()
-			.replace(/\s+/g, '_')
+		const domain = createCompanyValidData.domainAddress.toLowerCase().replace(/\s+/g, '_');
+
 		await login(page, sharedEmail, createCredentials, domain)
 		await page.waitForTimeout(3000)
 		await verifyNavigationButtons(page)
-		await createWorkspace(page, workspaceData)
-		await createSubsidiary(page, subsidiaryData)
-        //await testModalInteractions(page)
-		await editWorkspace(page, workspaceData.name)
+		await createWorkspace(page, workspaceList)
+		await createSubsidiary(page, subsidiaryList)
+		await editWorkspace(page, workspaceList)
 		await logout(page)
 	})
 })
