@@ -398,7 +398,7 @@ test.describe('GraphQL Workspace Tests', () => {
     expect(new Date(data.data.createWorkspace.updatedAt).toISOString()).toBe(data.data.createWorkspace.updatedAt);
   });
 
-  test('fetch user lists', async ({ page }) => {
+  test('get user lists', async ({ page }) => {
     const getUserListsQuery = `
         query GetUserLists {
             getUserLists {
