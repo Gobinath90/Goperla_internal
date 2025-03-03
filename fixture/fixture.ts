@@ -22,8 +22,8 @@ export const test = base.extend<MyFixtures>({
 	generatedEmail: [
 		async ({}, use) => {
 			const counter = getOrCreateCounter()
-			const email = `dorothy.wilson+000${counter}@healthPointerGroup.com`
-			//const email = `gp2_test+000${counter}@twilightitsolutions.com`
+			// const email = `dorothy.wilson+000${counter}@healthPointerGroup.com`
+			const email = `gp2_test+000${counter}@twilightitsolutions.com`
 			await use(email)
 		},
 		{ scope: 'test' }
