@@ -319,7 +319,7 @@ test.describe('User Sign In API with New password and Logout API', () => {
 let workspaceName = 'workspaceR5';
 let storedWorkspaceId;
 let description = 'user only';
-let kind = 'workspace';
+// let kind = WORKSPACE;
 let parent = null;
 let managers = ['67c03a9d83bff9dac823f7d0'];
 const url = 'https://api.qa.goperla.com/graphql';
@@ -355,7 +355,7 @@ test.describe('GraphQL Workspace Tests', () => {
 
     const variables = {
       name: workspaceName,
-      kind: kind,
+      kind: WORKSPACE,
       description: description,
       parent: parent,
       managers: managers

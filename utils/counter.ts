@@ -9,11 +9,11 @@ export function getOrCreateCounter(): number {
 
   const filePath = 'email_counter.txt'
   try {
-    let counter = 1
+    let counter = 41
     if (fs.existsSync(filePath)) {
       const fileContent = fs.readFileSync(filePath, 'utf-8')
-      counter = parseInt(fileContent, 10) + 1
-      if (isNaN(counter)) counter = 1
+      // counter = parseInt(fileContent, 10) + 1
+      // if (isNaN(counter)) counter = 1
     }
     fs.writeFileSync(filePath, counter.toString())
     globalCounter = counter

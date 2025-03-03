@@ -94,6 +94,7 @@ export class AuthenticationHelper {
 	async getVerificationCode(outlookPage) {
 		return await test.step('Get Verification Code', async () => {
 			try {
+				await outlookPage.waitForTimeout(5000)
 				await outlookPage.goto('https://outlook.office.com/mail/')
 				await outlookPage.waitForTimeout(5000)
 				await outlookPage.getByText('noreply@goperla.com').first().click()
@@ -142,9 +143,10 @@ export class AuthenticationHelper {
 					['Transparent pricing with no'],
 					'heading'
 				)
-				await this.page
-					.locator("(//div[contains(@class,'mb-4 mt-5')]//button)[1]")
-					.click()
+				await this.page.getByRole('button', { name: 'Select Plan' }).first().click();
+				// await this.page
+				// 	.locator("(//div[contains(@class,'mb-4 mt-5')]//button)[1]")
+				// 	.click()
 
 				await this.page.waitForTimeout(3000)
 				await verifyEleVisibility(

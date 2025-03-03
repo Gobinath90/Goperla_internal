@@ -102,7 +102,8 @@ test.describe('Email Generation Suite', () => {
 		  ];
 
 		const domain = createCompanyValidData.domainAddress.toLowerCase().replace(/\s+/g, '_');
-
+		
+		await page.waitForTimeout(3000)
 		await login(page, sharedEmail, createCredentials, domain)
 		await page.waitForTimeout(3000)
 		await verifyNavigationButtons(page)

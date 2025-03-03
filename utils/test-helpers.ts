@@ -230,8 +230,10 @@ export async function fillCompanyData(page, CreateCompanyValidData) {
                       await page.waitForTimeout(1000);
                       await page.getByPlaceholder('Enter City').fill(CreateCompanyValidData.city);
                       await page.waitForTimeout(1000);
-                      await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
-                      await page.waitForTimeout(1000);
+                      await page.getByRole('combobox').click();
+                      await page.getByRole('option', { name: 'New York' }).click();
+                      // await page.getByPlaceholder('Enter State').fill(CreateCompanyValidData.state);
+                      // await page.waitForTimeout(1000);
                       await page.getByPlaceholder('Enter Zip Code').fill(CreateCompanyValidData.zipCode);
                       await page.waitForTimeout(1000);
                   });
@@ -254,9 +256,9 @@ export async function fillCompanyData(page, CreateCompanyValidData) {
       // Handle SMS Authorization and Form Submission
       const smsElement = page.getByText('I authorize Perla to send SMS');
       await smsElement.scrollIntoViewIfNeeded();
-      await smsElement.click();
       await page.waitForTimeout(3000);
-      
+      await page.getByLabel('I authorize Perla to send SMS').check();
+      await page.waitForTimeout(3000);
       await clickElementsByRole(page, ['Submit'], 'button');
       await verifyVisibility(
           page.getByText('Company created successfully!'),
@@ -327,12 +329,12 @@ export async function fillCardDetails(page: Page, cardName: string, cardNumber: 
 }
 
 
-
 export async function login(page, sharedEmail, createCredentials, domain) {
   await test.step('Login to application', async () => {
       await test.step('Navigate to login page', async () => {
           Logger.info('⏳ Navigating to login page...');
           const url = `https://${domain}.qa.goperla.com/`;
+          // const url = `https://${domain}.qa.goperla.com/`;
           await page.goto(url);
       });
 

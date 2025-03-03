@@ -16,7 +16,7 @@ export const UserDetails = {
     NPI: '757-555-1212',
     mobileNumber: '276-555-1212',
     phoneNumber: '757-555-1212',
-    domain:'testerdomain',
+    domain:'testerdomainNewwwwww',
     website: 'https://healthpointernhfgroup.com/'
   } as const
   
